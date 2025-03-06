@@ -1,14 +1,13 @@
 import multer from "multer";
 import { v4 as uuidv4 } from "uuid";
 
-const guid: string = uuidv4();
-
 const diskStorage = multer.diskStorage({
   filename(req, file, cb) {
-    const prefix = guid;
-    cb(null, prefix + '.' + file.mimetype.split("/")[1]);
+    const uniqueName = uuidv4();
+    const extension = file.mimetype.split("/")[1];
+    cb(null, `${uniqueName}.${extension}`);
   },
-  destination: (req, file, cb) => {
+  destination(req, file, cb) {
     cb(null, "./public/uploads");
   },
 });
