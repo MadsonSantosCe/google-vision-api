@@ -2,7 +2,7 @@ import { RequestHandler } from "express";
 import path, { format } from "path";
 import fs from "fs";
 import { CardDataAnalyzer } from "../services/cardService";
-import { formatJson } from "../ultils/formatJson";
+import { formatJson } from "../utils/formatJson";
 
 const __dirname = path.resolve();
 
